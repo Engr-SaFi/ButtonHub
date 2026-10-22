@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="Explore 300 beautiful buttons. Preview designs and copy HTML and CSS instantly.">
+
+  <title>ButtonHub — Beautiful Buttons Library</title>
+
+  <!-- Bootstrap 5: Local files -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top app-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="#home">
+        Button<span class="brand-accent">Hub</span>
+        <span class="brand-dot">.</span>
+      </a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#library">Button Library</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+
+          <li class="nav-item ms-lg-2 py-2 py-lg-0">
+            <button class="btn btn-theme" id="themeToggle"
+              type="button" aria-label="Toggle color theme">
+              <span id="themeIcon">☾</span>
+              <span id="themeText">Dark Mode</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-section" id="home">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-10">
+          <span class="hero-badge">
+            ✦ YOUR CREATIVE BUTTON LIBRARY
+          </span>
+
+          <h1 class="hero-title">
+            Beautiful Buttons.<br>
+            <span class="gradient-text">Ready-to-Use Code.</span>
+          </h1>
+
+          <p class="hero-description mx-auto">
+            Discover unique button designs, preview them instantly,
+            and copy the HTML and CSS for your next web project.
+          </p>
+
+          <a href="#library" class="btn hero-cta">
+            Explore the Library <span aria-hidden="true">→</span>
+          </a>
+
+          <div class="hero-stats">
+            <div>
+              <strong id="totalCount">300+</strong>
+              <span>Buttons</span>
+            </div>
+
+            <div>
+              <strong id="categoryCount">10</strong>
+              <span>Categories</span>
+            </div>
+
+            <div>
+              <strong>100%</strong>
+              <span>Free to Explore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- LIBRARY -->
+  <main class="container library-section" id="library">
+
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">THE COLLECTION</span>
+        <h2>Explore Button Styles</h2>
+        <p>Choose a design and make it yours.</p>
+      </div>
+
+      <div class="results-badge">
+        <span id="resultCount">300</span> buttons
+      </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-panel">
+      <label class="visually-hidden" for="searchInput">
+        Search buttons
+      </label>
+
+      <span class="search-icon" aria-hidden="true">⌕</span>
+
+      <input type="search" id="searchInput"
+        class="form-control search-input"
+        placeholder="Search buttons, styles, or categories..."
+        autocomplete="off">
+
+      <button type="button" class="clear-search"
+        id="clearSearch" aria-label="Clear search">
+        ×
+      </button>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="category-list" id="categoryFilters">
+      <button class="category-chip active"
+        type="button" data-category="all">
+        All Buttons
+      </button>
+
+      <button class="category-chip"
+        type="button" data-category="gradient">Gradient</button>
+
+      <button class="category-chip"
+        type="button" data-category="neon">Neon</button>
+
+      <button class="category-chip"
+        type="button" data-category="outline">Outline</button>
+
+      <button class="category-chip"
+        type="button" data-category="3d">3D</button>
+
+      <button class="category-chip"
+        type="button" data-category="glow">Glow</button>
+
+      <button class="category-chip"
+        type="button" data-category="animated">Animated</button>
+
+      <button class="category-chip"
+        type="button" data-category="social">Social</button>
+
+      <button class="category-chip"
+        type="button" data-category="auth">Login / Signup</button>
+
+      <button class="category-chip"
+        type="button" data-category="download">Download</button>
+
+      <button class="category-chip"
+        type="button" data-category="icon">Icon</button>
+    </div>
+
+    <!-- BUTTON GRID -->
+    <div class="row g-4" id="buttonGrid"></div>
+
+    <!-- EMPTY STATE -->
+    <div class="empty-state d-none" id="emptyMessage">
+      <div class="empty-icon">⌕</div>
+      <h3>No buttons found</h3>
+      <p>Try another search or select a different category.</p>
+
+      <button class="btn btn-primary" id="resetFilters"
+        type="button">
+        Show All Buttons
+      </button>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination-area">
+      <button class="btn page-btn" id="prevPage" type="button">
+        ← Previous
+      </button>
+
+      <span id="pageInfo">Page 1 of 1</span>
+
+      <button class="btn page-btn" id="nextPage" type="button">
+        Next →
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="container text-center">
+      <span class="eyebrow">ABOUT BUTTONHUB</span>
+
+      <h2>Less Coding. More Creating.</h2>
+
+      <p class="about-description mx-auto">
+        ButtonHub is a collection of reusable web button designs.
+        Explore styles, preview effects, and copy HTML and CSS
+        to use in your own projects.
+      </p>
+
+      <div class="row g-3 mt-4 justify-content-center">
+        <div class="col-12 col-md-4">
+          <div class="feature-card">
+            <span>🎨</span>
+            <h3>Creative Designs</h3>
+            <p>Explore colorful styles and hover effects.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="feature-card">
+            <span>📋</span>
+            <h3>Easy Copying</h3>
+            <p>Copy the HTML and CSS for each button.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="feature-card">
+            <span>📱</span>
+            <h3>Responsive Layout</h3>
+            <p>Browse the library on different screen sizes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <div class="container d-flex flex-column flex-md-row
+      justify-content-between align-items-center gap-2">
+      <a class="footer-brand" href="#home">
+        Button<span class="brand-accent">Hub</span>.
+      </a>
+
+      <p class="mb-0">
+        Built with HTML, CSS, JavaScript and Bootstrap 5.
+      </p>
+
+
+      <a href="#home" class="back-top">Back to top ↑</a>
+    </div>
+      <p class="mb-0 text-center" >
+        By Engr.SaFi
+      </p>
+  </footer>
+
+  <!-- BUTTON DETAIL MODAL -->
+  <div class="modal fade" id="buttonModal" tabindex="-1"
+    aria-labelledby="modalTitle" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content app-modal">
+
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title fs-5" id="modalTitle">
+              Button Preview
+            </h2>
+            <p class="modal-subtitle mb-0" id="modalCategory"></p>
+          </div>
+
+          <button type="button" class="btn-close"
+            data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-preview" id="modalPreview"></div>
+
+          <div class="code-tabs" role="tablist"
+            aria-label="Code type">
+
+            <button type="button" class="code-tab active"
+              data-code-tab="html">HTML</button>
+
+            <button type="button" class="code-tab"
+              data-code-tab="css">CSS</button>
+          </div>
+
+          <pre class="code-box"><code id="codeOutput"></code></pre>
+
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <button type="button" class="btn btn-primary"
+              id="copyCodeButton">
+              Copy HTML
+            </button>
+
+            <button type="button" class="btn btn-outline-secondary"
+              id="copyBothButton">
+              Copy HTML + CSS
+            </button>
+          </div>
+
+          <p class="code-note mt-3 mb-0">
+            Note: The HTML and CSS are provided separately.
+            Copy both if you want the complete design.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="copyToast" class="toast app-toast"
+      role="status" aria-live="polite" aria-atomic="true">
+
+      <div class="toast-body" id="toastMessage">
+        Code copied!
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
+    
